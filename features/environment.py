@@ -17,7 +17,22 @@ def before_all(context: Context):
 
 def before_scenario(context: Context, scenario: Scenario) -> None:
     """Initializes replacement variables and establishes a connection"""
-    context.phantom = None
+    
+    import requests
+    from urllib3.exceptions import InsecureRequestWarning
+    from urllib3 import disable_warnings
+
+    disable_warnings(InsecureRequestWarning)
+    
+    import os
+    user = os.environ.get("SOAR_USER", "soar_local_admin")
+    password = os.environ.get("SOAR_PASSWORD", "password")
+    
+    s=requests.Session()
+    s.auth=(user, password)
+
+    soar_url = os.environ.get("SOAR_URL")
+    context.phantom = PhantomClient(soar_url, session=s, verify=False)
 
     if not context.phantom:
         raise NotImplementedError(
