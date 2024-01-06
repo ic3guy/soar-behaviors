@@ -346,6 +346,33 @@ def step_impl(context: Context, artifact_name: str, cef_key: str):
             f"The cef {cef_key} was found within the artifact {artifact_name}"
         )
 
+@then('the indicator "{indicator_name}" has the tags "{tags}"')
+def step_impl(context: Context, indicator_name: str, tags: str):
+    """Asserts that a given indicator has provided given tags
+    Params:
+        context (Context): Scenario Context
+        indicator_name (str): Name of the indicator
+        tags (str): Tags to match value
+    """  
+    # Parse the provided value as a list
+    parsed_list: list = list_parse(tags)
+    print(f"{indicator_name} | {parsed_list}")
+    
+    indicator = context.phantom.get_indicator_by_value(indicator_name)
+    
+    assert_equal_unordered_lists(parsed_list, indicator.tags)
+
+@then('the indicator "{indicator_name}" has no tags')
+def step_impl(context: Context, indicator_name: str):
+    """Asserts that a given indicator has no tags
+    Params:
+        context (Context): Scenario Context
+        indicator_name (str): Name of the indicator
+    """  
+
+    indicator = context.phantom.get_indicator_by_value(indicator_name)
+    assert_equal_unordered_lists([], indicator.tags)
+
 
 @then('the container has the "{attr}" of "{expected_value}"')
 def step_impl(context: Context, attr: str, expected_value: str):
