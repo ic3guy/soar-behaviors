@@ -43,13 +43,13 @@ Feature: Example Steps to use when configuring a test cases
                   | key2 | value2 |
 
             Given the artifact "artifact_name" has the "emailBody" below
-                """
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-              deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, 
-              similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
-              Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
-              est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, 
-                """
+            """
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                  deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, 
+                  similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
+                  Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
+                  est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, 
+            """
             
             # Assign values to an artifact.cef.sub-dictionary 
             Given the artifact "test1" has the following "emailDetails" values
@@ -144,12 +144,12 @@ Feature: Example Steps to use when configuring a test cases
              Then the playbook "playbook_not_supposed_to_be_ran_name" has not run
              # Validate by action name, only allowed when a single playbook is executed during the run of scenario
              Then the action "action_name" is "status"
-            # Validate that a given action was not ran 
+             # Validate that a given action was not ran 
              Then the action "action_name" did not run
-            # Validate that an action has a value
+             # Validate that an action has a value
              Then the action "action_name" has the "field" below
                 """
-        Example body of text
+                  Example body of text
                 """
              Then the action "action_name" has the "field" of "value"
 
