@@ -2,7 +2,7 @@ from soarsdk.objects import Container
 from soarsdk.client import PhantomClient
 from behave.runner import Context
 from behave.model import Scenario, Step
-import steps.utility_functions as utils
+import soarbehaviors.features.steps.utility_functions as utils
 import re
 
 # Optional configuration step

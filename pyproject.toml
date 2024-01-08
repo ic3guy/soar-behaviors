@@ -1,0 +1,11 @@
+# FILEPATH: /D:/source/soar-dev/soar-behaviors/pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "soar_behaviors"
+version = "0.1.0"
+description = "A project for soar behaviors"
+requires-python = ">=3.8"
