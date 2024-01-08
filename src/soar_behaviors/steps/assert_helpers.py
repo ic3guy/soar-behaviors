@@ -1,6 +1,6 @@
 import soarsdk
 from soarsdk.objects import Artifact, Container
-from exceptions import ContainerNotConfigured
+from soar_behaviors.steps.exceptions import ContainerNotConfigured
 
 
 """

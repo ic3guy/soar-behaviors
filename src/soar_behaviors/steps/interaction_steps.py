@@ -1,12 +1,11 @@
 from soarsdk.objects import Container
-from soarsdk.objects import Playbook
+from soarsdk.objects import Playbook, Exceptions
 from soarsdk.objects import Artifact
 from soarsdk.objects import Note
-from utility_functions import *
-from exceptions import *
+from soar_behaviors.steps.exceptions import *
 from behave import then, when
 from behave.model import Row, Table
-
+from behave.runner import Context
 
 @when("the playbooks are run")
 def run_all_playbooks(context: Context):
@@ -48,7 +47,7 @@ def step_impl(context, playbook_name):
     if "ignore_exception" in context.scenario.tags:
         try:
             context.phantom.run_playbooks(context.container)
-        except soarsdk.Exceptions.PlaybookException:
+        except Exceptions.PlaybookException:
             pass
     else:
         context.phantom.run_playbooks(context.container)

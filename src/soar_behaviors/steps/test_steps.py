@@ -1,4 +1,4 @@
-import utility_functions as utils
+from soar_behaviors.steps import utility_functions as utils
 from behave import *
 import soarsdk
 

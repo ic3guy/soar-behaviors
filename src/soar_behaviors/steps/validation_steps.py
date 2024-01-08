@@ -1,4 +1,4 @@
-from utility_functions import *
+from soar_behaviors.steps.utility_functions import *
 from exceptions import *
 from behave import then, when
 from behave.model import Row, Table

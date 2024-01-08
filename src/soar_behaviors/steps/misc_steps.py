@@ -4,7 +4,7 @@ from behave import then, given
 import os
 import pickle
 import pathlib
-from features.steps.utility_functions import table_to_array
+from soar_behaviors.steps.utility_functions import table_to_array
 import json
 import time
 from behave.runner import Context

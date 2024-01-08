@@ -1,17 +1,10 @@
 from behave import *
-from utility_functions import *
-from assert_helpers import *
-from soarsdk.objects import Artifact
-from soarsdk.objects import Container
-from soarsdk.objects import Playbook
-from soarsdk.objects import Action
+from soar_behaviors.steps.utility_functions import table_to_dictionary, table_to_array, dict_parse, list_parse, json_key_finder, table_to_list
+from soar_behaviors.steps.assert_helpers import assert_container
+from soarsdk.objects import Artifact, Container, Playbook, Action
 import os
-from exceptions import ContainerMissingAttributes
-from exceptions import ContainerNotConfigured
-from exceptions import ArtifactNotConfigured
-from exceptions import PlaybooksNotConfigured
-from exceptions import ActionNotFound
-
+from soar_behaviors.steps.exceptions import ContainerMissingAttributes, ArtifactNotConfigured, PlaybooksNotConfigured, ActionNotFound
+from behave.runner import Context
 
 @given("the following container configuration")
 def table_container_configuration(context: Context):
