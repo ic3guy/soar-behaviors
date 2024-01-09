@@ -28,7 +28,6 @@ def assert_playbook_status(context: Context, playbook_name: str, status: str):
             f"Playbook {playbook.name} status of {playbook.status} does not equal {status}"
         )
 
-
 @then("the playbook actions are successful")
 def assert_all_actions_successful(context: Context) -> None:
     """Blanket level validation that asserts that all actions are successful. This validation step is not recommended for common usage as it removes the verbosity and documentation of test cases
