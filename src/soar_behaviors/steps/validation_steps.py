@@ -5,7 +5,7 @@ from behave.model import Row, Table
 from typing import Generator, Union, Any
 from behave.runner import Context
 from soarsdk.objects import Container, Artifact, Action, Playbook
-from assert_helpers import assert_container
+from soar_behaviors.steps.assert_helpers import assert_container
 
 
 @then('the playbook "{playbook_name}" has the status of "{status}"')
