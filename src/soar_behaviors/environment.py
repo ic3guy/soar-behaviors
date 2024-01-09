@@ -32,6 +32,12 @@ def before_scenario(context: Context, scenario: Scenario) -> None:
     s.auth=(user, password)
 
     soar_url = os.environ.get("SOAR_URL")
+    
+    if not soar_url:
+        raise NotImplementedError(
+            f"A SOAR_URL environment variable must be set to the URL of the SOAR instance to test against"
+        )
+    
     context.phantom = PhantomClient(soar_url, session=s, verify=False)
 
     if not context.phantom:
