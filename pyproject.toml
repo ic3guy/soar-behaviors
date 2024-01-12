@@ -7,4 +7,4 @@ name = "soar_behaviors"
 version = "0.1.0"
 description = "A project for soar behaviors"
 requires-python = ">=3.8"
-dependencies = ["soarsdk @ git+https://github.com/ic3guy/soarsdk.git", behave]
+dependencies = ["soarsdk @ git+https://github.com/ic3guy/soarsdk.git", "behave"]
