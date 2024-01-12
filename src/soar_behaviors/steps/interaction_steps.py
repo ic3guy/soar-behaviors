@@ -40,6 +40,10 @@ def step_impl(context):
 @when('the playbook "{playbook_name}" is ran')
 def step_impl(context, playbook_name):
     """Run a given playbook after connecting to sandbox. Useful when multiple playbooks are required to run in different orders"""
+    from pygit2 import Repository
+    
+    playbook_name = f"{Repository('.').head.shorthand}/{playbook_name}"
+    
     playbook: Playbook = context.container.get_playbook(name=playbook_name)
     if not playbook:
         playbook = Playbook(name=playbook_name)
